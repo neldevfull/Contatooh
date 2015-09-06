@@ -16,8 +16,18 @@ var contacts = [
 
 module.exports = function() {
 	var controller = {};
+	// Response contacts list
 	controller.listContacts = function(req, res) {
 		res.json(contacts);
 	};
+	// Get contact
+	controller.getContact = function(req, res) {
+		var contact = contacts.filter(function(contact) {
+			return contact._id = req.params.id
+		})[0];
+			contact ?
+				res.json(contact) :
+				res.status(404).send('Contact not found'); 
+	}
 	return controller;
 }
