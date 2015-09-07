@@ -3,13 +3,18 @@
 <head>
 	<meta name="viewport" content="width=device-width">
 	<meta charsert="UTF-8">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
 	<title>Welcome to the Contatooh</title>
 </head>
-<body ng-view>	
-	<script src="vendor/angular/angular.js"></script> 
-	<script src="vendor/angular-route/angular-route.js"></script>
-	<script src="js/main.js"></script> 
-	<script src="js/controllers/ContactsController.js"></script>
-	<script src="js/controllers/ContactController.js"></script>
+<body class="container">	
+	<div ng-view>		
+		<script src="vendor/angular/angular.js"></script> 
+		<script src="vendor/angular-route/angular-route.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/routes/routes.js"></script> 
+		<script src="js/controllers/ContactsController.js"></script>
+		<script src="js/controllers/ContactController.js"></script>
+	</div>
 </body>
 </html> 

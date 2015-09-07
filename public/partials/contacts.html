@@ -1,3 +1,27 @@
-<h1>Welcome to the Contatooh</h1>
-<button ng-click="incremental()">New</button>	
-<p>Contacts registered: {{total}}</p>
+<div class="jumbotron">	
+	<h1 class="text-center">Welcome to the Contatooh</h1>
+</div>
+<button class="btn btn-primary"
+	ng-click="incremental()">
+	New
+</button>	
+<input ng-model="filtering" type="search" placeholder="Name">
+<p>Contacts registered: {{ total }}</p>
+<div class="table-responsive">
+	<table class="table table-hover">
+		<tr>
+			<th>Name</th>
+			<th>E-mail</th>
+			<th class="text-center">Action</th>
+		</tr>
+		<tr ng-repeat="contact in contacts | filter: filtering">
+			<td>
+				<a href="">{{ contact.name }}</a>
+			</td>
+			<td>{{ contact.email }}</td>
+			<td class="text-center">
+				<button class="btn btn-warning">Remove</button>
+			</td>
+		</tr>
+	</table>
+</div>  
