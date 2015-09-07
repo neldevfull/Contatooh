@@ -30,4 +30,4 @@ module.exports = function() {
 				res.status(404).send('Contact not found'); 
 	}
 	return controller;
-}
+} 
