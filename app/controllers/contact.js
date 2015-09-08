@@ -11,13 +11,17 @@ var contacts = [
 	{
 		_id: 3, name: 'Contact Example 3',
 		email: 'cont3@company.com'	
+	},
+	{
+		_id: 4, name: 'Contact Example 4',
+		email: 'cont4@company.com'	
 	}
 ];
 
 module.exports = function() {
 	var controller = {};
-	// Response contacts list
-	controller.listContacts = function(req, res) {
+	// Get Contacts list 
+	controller.getContacts = function(req, res) {
 		res.json(contacts);
 	};
 	// Get contact
