@@ -9,6 +9,6 @@ angular.module('routes', ['ngRoute']).config(function($routeProvider) {
 		controller: 'ContactController'
 	})
 	.otherwise({
-		redirectTo: '/contact'
+		redirectTo: '/contacts'
 	});
 });   

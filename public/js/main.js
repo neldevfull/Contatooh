@@ -1,1 +1,1 @@
-angular.module('contatooh', ['routes']);    
+angular.module('contatooh', ['routes', 'ngResource']);    
