@@ -8,6 +8,10 @@ angular.module('routes', ['ngRoute']).config(function($routeProvider) {
 		templateUrl: 'partials/contact.html',
 		controller: 'ContactController'
 	})
+	.when('/contact', {
+		templateUrl: 'partials/contact.html',
+		controller: 'ContactController'
+	})
 	.otherwise({
 		redirectTo: '/contacts'
 	});

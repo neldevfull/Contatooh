@@ -1,3 +1,30 @@
-angular.module('contatooh').controller('ContactController', function($routeParams) {
-	console.log($routeParams.contactId);
+angular.module('contatooh').controller('ContactController', function($scope, $resource, $routeParams) {
+	var Contact = $resource('/contacts/:id');
+	
+	if($routeParams.contactId) {		
+		Contact.get({ id: $routeParams.contactId },
+			function(contact) {
+				$scope.contact = contact;
+				console.log('Success!');
+			},
+			function(error) {
+				$scope.message = 'It could not get contact';
+				console.log(error);
+			}
+		);
+	}
+	else {
+		$scope.contact = new Contact();
+	}
+
+	$scope.save = function() {
+		$scope.contact.$save()
+			.then(function() {
+				$scope.message = 'Saved successfully';
+				$scope.contact = new Contact();
+			})
+			.catch(function(error) {
+				$scope.message = 'It could not be saved';
+			});
+	};
 });

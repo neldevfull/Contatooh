@@ -1,8 +1,12 @@
 <div class="jumbotron">	
 	<h1 class="text-center">Welcome to the Contatooh</h1>
 </div>	
+<p ng-show="message">
+	{{ message }}
+</p>
+<a ng-href="#/contact" class="btn btn-primary">New Contact</a>
 <input ng-model="filtering" type="search" placeholder="Name">
-<p>Contacts registered: {{ contacts.length }}</p> 
+<p ng-show="contacts.length">Contacts registered: {{ contacts.length }}</p> 
 <div class="table-responsive">
 	<table class="table table-hover">
 		<tr>
@@ -12,12 +16,18 @@
 		</tr>
 		<tr ng-repeat="contact in contacts | filter: filtering">
 			<td>
-				<a href="">{{ contact.name }}</a>
+				<a ng-href="#/contact/{{contact._id}}">{{ contact.name }}</a>  
 			</td>
 			<td>{{ contact.email }}</td>
 			<td class="text-center">
-				<button class="btn btn-warning">Remove</button>
+				<button ng-click="remove(contact)"  
+					class="btn btn-warning">
+					Remove
+				</button>
 			</td>
+			<p ng-hide="contacts.length" class="text-info">
+				There isn't contacts  
+			</p>
 		</tr>
-	</table>
-</div>  
+	</table> 
+</div>   
