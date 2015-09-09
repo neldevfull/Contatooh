@@ -1,5 +1,4 @@
-angular.module('contatooh').controller('ContactsController',function($scope, $resource, $http) {	
-	var Contacts     = $resource('/contacts/:id');
+angular.module('contatooh').controller('ContactsController',function(Contact, $scope) {		
 	$scope.filtering = '';
 	$scope.contacts  = [];
 	$scope.message   = '';		
@@ -9,7 +8,7 @@ angular.module('contatooh').controller('ContactsController',function($scope, $re
 	} 	
 	// Get Contacts list
 	function getContacts() {		
-		Contacts.query (
+		Contact.query (
 			function(contacts) {
 				$scope.contacts = contacts;
 				$scope.message  = '';
@@ -22,7 +21,7 @@ angular.module('contatooh').controller('ContactsController',function($scope, $re
 	}   
 	// Remove Contact  
 	$scope.remove = function(contact) {  				
-		Contacts.delete({ id: contact._id }, 
+		Contact.delete({ id: contact._id }, 
 			function(contact) {
 				var indexCon = '';								
 				$scope.contacts.forEach(function(field) {
